@@ -1,5 +1,5 @@
 <h1 align="center">Hi, I'm Abul Hasan 👋</h1>
-<h3 align="center">Lead Software Engineer @ CEFALO · Bangladesh</h3>
+<h3 align="center">Senior Staff Software Engineer @ CEFALO · Bangladesh</h3>
 
 <p align="center">
   <a href="https://github.com/ahasan09">
