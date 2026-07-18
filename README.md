@@ -34,9 +34,9 @@ I architect and ship frontends for **nation-scale platforms**.
 - **100,000+ users** on the Swiss Life Select EU fintech platform I previously led
 - **5 repositories** modernized — four from Angular 14 to 21, one to the latest React — with a team reduced from 10 to 5 engineers
 
-At senior staff level, I focus on architecture that survives scale, delivery pressure, and team changes. I write production code, drive technical direction, and mentor engineers with shipping velocity as the outcome.
+At senior staff level, I focus on architecture that survives scale, delivery pressure, and team changes. I write production code, drive technical direction, and mentor engineers with shipping velocity as the outcome. Every role in my career has run on Agile/Scrum — sprints, retros, and regular releases.
 
-**How I build:** I run an agentic development workflow end-to-end — an agent pipeline picks up a Jira ticket, analyzes the requirement, generates a design spec and plan, implements it, then runs code review and security review, while I direct the architecture and own every merge. Custom skills encode team conventions into the pipeline.
+**How I build:** I run an agentic development workflow end-to-end — an agent pipeline picks up a Jira ticket, analyzes the requirement, generates a design spec and plan, implements it, then runs code review and security review, while I direct the architecture and own every merge. Every pipeline stage runs as a separate custom skill I built.
 
 ---
 
@@ -66,7 +66,7 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 - Migration roadmap delivered with a **50% leaner team**
 - Consistent cross-repo engineering standards for frontend delivery
 
-**Core Stack:** Angular, React, TypeScript, Kotlin, Java 26, Spring Boot, Python, PostgreSQL, MongoDB, Elasticsearch, Kafka, ActiveMQ
+**Core Stack:** Angular, React, TypeScript, Kotlin, Java 21, Spring Boot, Python, PostgreSQL, MongoDB, Elasticsearch, Kafka, ActiveMQ
 
 ### SELISE Digital Platforms — Principal Software Engineer
 **2018 – Jul 2022 (4 years)**
@@ -79,8 +79,10 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 
 **Ownership**
 - Owned core frontend architecture decisions and led frontend engineers
+- Built the company-wide Angular frontend architecture (SSR-capable) used by all SELISE teams — teams published shared components, and common packages (auth, SSO, SignalR-integrated notifications, dynamic datatable, dialog) shipped on an internal npm registry
 - Delivered SSO, multi-tenancy, PWA, and push notifications
 - Implemented real-time integrations with SignalR and RabbitMQ
+- Migrated 4 projects from Angular 2 to 12
 - Built data-intensive dashboard experiences using Chart.js and AG Grid
 
 **Core Stack:** Angular, TypeScript, .NET Core, C#, MongoDB, Redis, RabbitMQ, SignalR, JWT, PWA
@@ -96,7 +98,7 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 ## Stack
 
 ### Frontend
-Angular, React, TypeScript, JavaScript, RxJS, Redux, Angular Material, PrimeNG, Chakra UI, Bootstrap, PWA
+Angular, React, TypeScript, JavaScript, RxJS, Redux, Angular Material, PrimeNG, Chakra UI, Bootstrap, PWA, SSR
 
 ### Backend
 NestJS, Node.js, Express, Kotlin, Java, Spring Boot, .NET Core, C#, Python, Django, REST, GraphQL, JWT, SSO
@@ -119,6 +121,7 @@ Deep dives into the architecture decisions behind my production work — the pro
 - **[Migrating 5 codebases to Angular 21 with half the team](https://ahasan09.github.io/case-studies/angular-migration.html)** — sequencing, risk, and CI standardization when the team went from 10 to 5.
 - **[An agentic workflow: from Jira ticket to reviewed PR](https://ahasan09.github.io/case-studies/agentic-workflow.html)** — an agent pipeline for spec, plan, implementation, and review, with a human owning every merge.
 - **[CDC with Kafka: keeping Elasticsearch in sync](https://ahasan09.github.io/case-studies/kafka-cdc-search.html)** — why change data capture beat dual writes and batch reindexing.
+- **[A pull-only middleware: publish status behind a rate-limited API](https://ahasan09.github.io/case-studies/archive-middleware.html)** — per-item checkpointing keeps 1M-user search in sync without the portal calling the external system.
 - **[A multi-tenant fintech platform for 100K EU users](https://ahasan09.github.io/case-studies/swiss-life-platform.html)** — SSO, tenancy isolation, PWA, and real-time delivery.
 
 My repositories here are mostly focused exercises and experiments — the production work lives in client systems and is described above. [All repositories →](https://github.com/ahasan09?tab=repositories)
