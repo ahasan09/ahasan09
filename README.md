@@ -30,11 +30,13 @@ I architect and ship frontends for **nation-scale platforms**.
 ## Impact
 
 - **13+ years** shipping production software across frontend, backend, and platform architecture
-- **10,000+ users** on the Norwegian National Archive system I architect at Cefalo
+- **1M+ users** on the Norwegian National Archive's public Arkivportalen portal I own at Cefalo — plus 10,000+ archivists on the internal systems
 - **100,000+ users** on the Swiss Life Select EU fintech platform I previously led
-- **5 repositories** migrated to modern Angular in parallel while team size was reduced
+- **5 repositories** modernized — four from Angular 14 to 21, one to the latest React — with a team reduced from 10 to 5 engineers
 
 At senior staff level, I focus on architecture that survives scale, delivery pressure, and team changes. I write production code, drive technical direction, and mentor engineers with shipping velocity as the outcome.
+
+**How I build:** I run an agentic development workflow end-to-end — an agent pipeline picks up a Jira ticket, analyzes the requirement, generates a design spec and plan, implements it, then runs code review and security review, while I direct the architecture and own every merge. Custom skills encode team conventions into the pipeline.
 
 ---
 
@@ -47,20 +49,24 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 
 **Problem**
 - Frontend platform spread across 5 repositories with increasing feature demand
-- Team rebalanced from 10 to 5 engineers during migration roadmap execution
+- Team rebalanced from 10 to 5 engineers before the migration began
 
 **Approach**
-- Drove Angular migration across all 5 repositories in parallel
-- Designed SIARD import workflows for legacy archive data ingest
+- Drove Angular 14→21 and React migrations across all 5 repositories — pilot repo first, then the rest in overlap
+- Own the frontend of all 5 modules, plus the Arkivportalen portal and requisition backends — leading the team day-to-day, with oversight of backend work on the remaining modules
 - Built dynamic permission engine and Elasticsearch-backed search capabilities
+- Built a Kafka CDC pipeline keeping Elasticsearch and cross-module shared data in sync with PostgreSQL/MongoDB
+- Built a digital archive middleware in Python — gradually pulls portal data into its own PostgreSQL and reconciles it against an external digital-media system (where content is published from many sources) to track each item's publish status; a separate portal-side scheduler pulls that status into portal Elasticsearch, so the portal never calls the media system directly — with retries, failure handling, and last-success checkpoints on both sides
+- Implemented WebSocket live notifications; drove UI improvements and Google Analytics integration on the portal
+- Set up self-hosted Bitbucket Pipelines runners on Azure VMs for CI
 - Standardized testing and CI patterns across frontend codebases
 
 **Outcome**
-- Production system serving **10,000+ archivists and public users**
+- Production system serving **10,000+ archivists** and a public portal with **1M+ users**
 - Migration roadmap delivered with a **50% leaner team**
 - Consistent cross-repo engineering standards for frontend delivery
 
-**Core Stack:** Angular, React, TypeScript, Kotlin, Java 17, Spring Boot, PostgreSQL, MongoDB, Elasticsearch, Kafka, ActiveMQ
+**Core Stack:** Angular, React, TypeScript, Kotlin, Java 26, Spring Boot, Python, PostgreSQL, MongoDB, Elasticsearch, Kafka, ActiveMQ
 
 ### SELISE Digital Platforms — Principal Software Engineer
 **2018 – Jul 2022 (4 years)**
@@ -73,11 +79,11 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 
 **Ownership**
 - Owned core frontend architecture decisions and led frontend engineers
-- Delivered SSO, multi-tenancy, PWA, SSR, and push notifications
+- Delivered SSO, multi-tenancy, PWA, and push notifications
 - Implemented real-time integrations with SignalR and RabbitMQ
 - Built data-intensive dashboard experiences using Chart.js and AG Grid
 
-**Core Stack:** Angular, TypeScript, .NET Core, C#, MongoDB, Redis, RabbitMQ, SignalR, JWT, PWA, SSR
+**Core Stack:** Angular, TypeScript, .NET Core, C#, MongoDB, Redis, RabbitMQ, SignalR, JWT, PWA
 
 ### Earlier Career (2013 – 2017)
 
@@ -90,7 +96,7 @@ At senior staff level, I focus on architecture that survives scale, delivery pre
 ## Stack
 
 ### Frontend
-Angular, React, TypeScript, JavaScript, RxJS, Redux, Angular Material, PrimeNG, Chakra UI, Bootstrap, PWA, SSR
+Angular, React, TypeScript, JavaScript, RxJS, Redux, Angular Material, PrimeNG, Chakra UI, Bootstrap, PWA
 
 ### Backend
 NestJS, Node.js, Express, Kotlin, Java, Spring Boot, .NET Core, C#, Python, Django, REST, GraphQL, JWT, SSO
@@ -99,25 +105,23 @@ NestJS, Node.js, Express, Kotlin, Java, Spring Boot, .NET Core, C#, Python, Djan
 PostgreSQL, MongoDB, MSSQL, Redis, Elasticsearch, RabbitMQ, Apache Kafka, ActiveMQ, SignalR, WebSocket
 
 ### Cloud and Delivery
-Microsoft Azure, AWS, Docker, Azure DevOps, Jenkins, GitHub Actions, Bitbucket Pipelines, Application Insights, Azure Blob Storage
+Docker, Bitbucket Pipelines, Microsoft Azure, AWS, Azure DevOps, Jenkins, GitHub Actions, Application Insights, Azure Blob Storage
 
 ### Quality and Practice
-Playwright, Jest, Jasmine, Karma, TDD, DDD, SOLID, Design Patterns, Clean Architecture, Agile/Scrum
+Playwright, Jest, Jasmine, Karma, TDD, DDD, SOLID, Design Patterns, Clean Architecture, Agile/Scrum, Agentic development (Claude Code)
 
 ---
 
-## Selected Work
+## Case Studies
 
-| Project | What it demonstrates | Stack |
-|---|---|---|
-| [game-hub](https://github.com/ahasan09/game-hub) | Production-quality React UI architecture, API integration, discoverability UX | React 18, TypeScript, Vite, Chakra UI, React Query |
-| [nestjs-task-management](https://github.com/ahasan09/nestjs-task-management) | Authenticated, user-scoped REST API design with testable service boundaries | NestJS, TypeScript, PostgreSQL, TypeORM, JWT |
-| [playwright-practice-app](https://github.com/ahasan09/playwright-practice-app) | E2E quality strategy with Page Object Model and maintainable test suites | Angular, TypeScript, Playwright |
-| [angular-signature-pad](https://github.com/ahasan09/angular-signature-pad) | Reusable Angular library design and package-level abstraction | Angular, TypeScript, Canvas |
-| [csharp-design-patterns](https://github.com/ahasan09/csharp-design-patterns) | Practical, implementation-focused software design fundamentals | C#, .NET |
-| [twitter-clone](https://github.com/ahasan09/twitter-clone) | Full-stack delivery across auth, social graph, and feed interactions | Django, Python |
+Deep dives into the architecture decisions behind my production work — the problem, the options I weighed, and what happened:
 
-See all repositories: https://github.com/ahasan09?tab=repositories
+- **[Migrating 5 codebases to Angular 21 with half the team](https://ahasan09.github.io/case-studies/angular-migration.html)** — sequencing, risk, and CI standardization when the team went from 10 to 5.
+- **[An agentic workflow: from Jira ticket to reviewed PR](https://ahasan09.github.io/case-studies/agentic-workflow.html)** — an agent pipeline for spec, plan, implementation, and review, with a human owning every merge.
+- **[CDC with Kafka: keeping Elasticsearch in sync](https://ahasan09.github.io/case-studies/kafka-cdc-search.html)** — why change data capture beat dual writes and batch reindexing.
+- **[A multi-tenant fintech platform for 100K EU users](https://ahasan09.github.io/case-studies/swiss-life-platform.html)** — SSO, tenancy isolation, PWA, and real-time delivery.
+
+My repositories here are mostly focused exercises and experiments — the production work lives in client systems and is described above. [All repositories →](https://github.com/ahasan09?tab=repositories)
 
 ---
 
